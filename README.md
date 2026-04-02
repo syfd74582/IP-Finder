@@ -1,6 +1,3 @@
-# IP-Finder
-IP Finder – A GUI tool to discover any network device (IP cameras, routers, etc.) regardless of its IP range. Uses ARP sniffing/scanning, displays MAC vendor, device type, open ports, and exports results to CSV.
-
 
 # 🔍 IP Finder - Network Device Discovery Tool
 
@@ -8,131 +5,111 @@ IP Finder – A GUI tool to discover any network device (IP cameras, routers, et
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-lightgrey.svg)]()
 
-> أداة رسومية احترافية لاكتشاف أي جهاز على الشبكة (كاميرات مراقبة، راوترات، أجهزة إنترنت الأشياء) بغض النظر عن نطاق IP الخاص به.
+> A professional GUI tool to discover any network device (IP cameras, routers, IoT devices) regardless of its IP range.
 
-## ✨ المميزات
+## ✨ Features
 
-| الميزة | الوصف |
-|--------|-------|
-| 🎯 **كشف تلقائي** | يكتشف الأجهزة دون الحاجة لمعرفة النطاق المسبق |
-| 📡 **وضعان للكشف** | استماع سلبي (Sniffer) + مسح نشط (ARP Scan) |
-| 🏭 **معرفة الشركة** | يستخرج الشركة المصنعة من عنوان MAC (قاعدة بيانات OUI) |
-| 🖥️ **تحديد نوع الجهاز** | يميز بين كاميرات IP، راوترات، طابعات، سيرفرات |
-| 🔌 **فحص المنافذ** | يعرض المنافذ المفتوحة (HTTP, RTSP, SSH, وغيرها) |
-| 💾 **حفظ النتائج** | تصدير النتائج إلى ملف CSV |
-| 🌐 **واجهة عربية** | واجهة رسومية سهلة الاستخدام (Tkinter) |
+| Feature | Description |
+|---------|-------------|
+| 🎯 **Auto Discovery** | Detects devices without needing to know the IP range in advance |
+| 📡 **Two Detection Modes** | Passive Sniffer + Active ARP Scan |
+| 🏭 **Vendor Recognition** | Extracts manufacturer from MAC address (OUI database) |
+| 🖥️ **Device Type Detection** | Distinguishes between IP cameras, routers, printers, servers |
+| 🔌 **Port Scanning** | Shows open ports (HTTP, RTSP, SSH, and more) |
+| 💾 **Save Results** | Export results to CSV file |
+| 🌐 **User-Friendly GUI** | Built with Tkinter |
 
-## 🚀 طريقة الاستخدام
+## 🚀 Usage Guide
 
-### المتطلبات الأساسية
-- نظام تشغيل Windows / Linux
-- Python 3.8 أو أحدث
-- صلاحيات المدير (لعمل السنيفر)
+### Prerequisites
+- Windows / Linux operating system
+- Python 3.8 or higher
+- Administrator privileges (for sniffer mode)
 
-### التثبيت والتشغيل
+### Installation & Execution
 
 ```bash
-# 1. استنساخ المشروع
+# 1. Clone the repository
 git clone https://github.com/syfd74582/IP-Finder.git
 cd IP-Finder
 
-# 2. إنشاء بيئة افتراضية (مستحسن)
+# 2. Create a virtual environment (recommended)
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
 venv\Scripts\activate     # Windows
 
-# 3. تثبيت المتطلبات
+# 3. Install dependencies
 pip install -r requirements.txt
 
-# 4. تشغيل البرنامج
+# 4. Run the program
 python ip_finder.py
 ```
 
-> **ملاحظة مهمة:** على نظام Windows، يُفضل تشغيل البرنامج كمدير (Run as Administrator) لضمان عمل خاصية الاستماع السلبي بشكل صحيح.
+> **Important Note:** On Windows, it's recommended to run the program as Administrator to ensure the passive sniffer works correctly.
 
-## 🖥️ لقطة شاشة
+## 🖥️ Screenshot
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  🔍 IP Finder - كشف أجهزة الشبكة                        ─ □ × │
-├─────────────────────────────────────────────────────────────────┤
-│  واجهة الشبكة: [Ethernet (192.168.1.100)          ▼] [تحديث]   │
-│                                                                  │
-│  [▶ بدء الاكتشاف] [🔄 إعادة تشغيل]        الحالة: ✓ جاهز       │
-│                                                                  │
-│  ════════════════════════════════════════════════════════════   │
-│  │ IP           │ MAC               │ الشركة      │ النوع    │  │
-│  │ 192.168.1.1  │ 00:1C:9E:XX:XX:XX │ Hikvision   │ Camera   │  │
-│  │ 192.168.1.2  │ 70:56:81:XX:XX:XX │ TP-Link     │ Router   │  │
-│  │ 192.168.1.5  │ 00:15:5D:XX:XX:XX │ Microsoft   │ Generic  │  │
-│  ════════════════════════════════════════════════════════════   │
-│                                                                  │
-│  [💾 حفظ CSV] [🗑 مسح] [📋 تفاصيل]                              │
-│                                                                  │
-│  [سجل العمليات]                                                 │
-│  [14:30:01] بدء الاكتشاف على الواجهة: Ethernet                  │
-│  [14:30:15] جهاز جديد: 192.168.1.1 (Hikvision) - Camera        │
-└─────────────────────────────────────────────────────────────────┘
-```
+<div align="center">
+  <img src="ip_find.png" alt="Application Interface" width="100%">
+</div>
 
-## 📊 قاعدة بيانات الشركات المصنعة (OUI)
+## 📊 Manufacturer Database (OUI)
 
-يدعم البرنامج التعرف على أكثر من 50 شركة مصنعة، منها:
+The program recognizes over 50 manufacturers, including:
 
-| الشركة | الاختصار |
-|--------|----------|
-| Hikvision | كاميرات مراقبة |
-| Dahua | كاميرات مراقبة |
-| TP-Link | راوترات، مفاتيح شبكة |
-| Cisco | أجهزة شبكة احترافية |
-| Ubiquiti | نقاط وصول لاسلكية |
-| Apple | أجهزة آبل |
-| Samsung | أجهزة متنوعة |
-| Netgear | أجهزة شبكة |
-| MikroTik | أجهزة شبكة |
-| Axis Communications | كاميرات IP |
+| Manufacturer | Type |
+|--------------|------|
+| Hikvision | Surveillance Cameras |
+| Dahua | Surveillance Cameras |
+| TP-Link | Routers, Network Switches |
+| Cisco | Professional Network Devices |
+| Ubiquiti | Wireless Access Points |
+| Apple | Apple Devices |
+| Samsung | Various Devices |
+| Netgear | Network Devices |
+| MikroTik | Network Devices |
+| Axis Communications | IP Cameras |
 
-## 🔧 بنية المشروع
+## 🔧 Project Structure
 
 ```
 IP-Finder/
-├── ip_finder.py          # الملف الرئيسي للبرنامج
-├── requirements.txt      # الاعتماديات المطلوبة
-├── README.md             # توثيق المشروع
-├── LICENSE               # ترخيص MIT
-└── .gitignore            # ملفات مستثناة من git
+├── ip_finder.py          # Main program file
+├── requirements.txt      # Required dependencies
+├── README.md             # Project documentation
+├── LICENSE               # MIT License
+└── .gitignore            # Git ignored files
 ```
 
-## 📝 الاعتماديات (Dependencies)
+## 📝 Dependencies
 
 ```txt
-scapy>=2.4.5    # للتعامل مع حزم الشبكة (ARP, Sniffer)
+scapy>=2.4.5    # For network packet handling (ARP, Sniffer)
 ```
 
-> **ملاحظة:** البرنامج لا يعتمد على `netifaces` لتجنب مشاكل التوافق مع Windows.
+> **Note:** The program does not depend on `netifaces` to avoid Windows compatibility issues.
 
-## 🤝 المساهمة في التطوير
+## 🤝 Contributing
 
-1. Fork المشروع
-2. إنشاء فرع جديد (`git checkout -b feature/amazing`)
-3. إجراء التغييرات (`git commit -m 'Add amazing feature'`)
-4. رفع التغييرات (`git push origin feature/amazing`)
-5. فتح Pull Request
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/amazing`)
+3. Make your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing`)
+5. Open a Pull Request
 
-## 📧 التواصل
+## 📧 Contact
 
-- **المطور:** syfd74582
-- **البريد الإلكتروني:** [your-email@example.com]
+- **Developer:** syfd74582
+- **Email:** [your-email@example.com]
 - **GitHub:** [github.com/syfd74582](https://github.com/syfd74582)
 
-## 📜 الترخيص
+## 📜 License
 
-هذا المشروع مرخص تحت رخصة **MIT License** - راجع ملف [LICENSE](LICENSE) للتفاصيل.
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
 ---
 
 <div align="center">
-  <sub>Built with ❤️ by syfd74582</sub>
+  <sub>Built with ❤️ by Adnan Alqyady</sub>
 </div>
 ```
-
