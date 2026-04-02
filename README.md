@@ -1,4 +1,7 @@
 
+# IP-Finder
+IP Finder – A GUI tool to discover any network device (IP cameras, routers, etc.) regardless of its IP range. Uses ARP sniffing/scanning, displays MAC vendor, device type, open ports, and exports results to CSV.
+
 # 🔍 IP Finder - Network Device Discovery Tool
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
@@ -17,7 +20,7 @@
 | 🖥️ **Device Type Detection** | Distinguishes between IP cameras, routers, printers, servers |
 | 🔌 **Port Scanning** | Shows open ports (HTTP, RTSP, SSH, and more) |
 | 💾 **Save Results** | Export results to CSV file |
-| 🌐 **User-Friendly GUI** | Built with Tkinter |
+| 🌐 **Arabic Interface** | User-friendly GUI built with Tkinter |
 
 ## 🚀 Usage Guide
 
@@ -46,6 +49,31 @@ python ip_finder.py
 ```
 
 > **Important Note:** On Windows, it's recommended to run the program as Administrator to ensure the passive sniffer works correctly.
+
+## 🖥️ Screenshot
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  🔍 IP Finder - Network Device Discovery                ─ □ × │
+├─────────────────────────────────────────────────────────────────┤
+│  Network Interface: [Ethernet (192.168.1.100)          ▼] [Refresh] │
+│                                                                  │
+│  [▶ Start Discovery] [🔄 Restart]            Status: ✓ Ready    │
+│                                                                  │
+│  ════════════════════════════════════════════════════════════   │
+│  │ IP           │ MAC               │ Vendor        │ Type     │  │
+│  │ 192.168.1.1  │ 00:1C:9E:XX:XX:XX │ Hikvision     │ Camera   │  │
+│  │ 192.168.1.2  │ 70:56:81:XX:XX:XX │ TP-Link       │ Router   │  │
+│  │ 192.168.1.5  │ 00:15:5D:XX:XX:XX │ Microsoft     │ Generic  │  │
+│  ════════════════════════════════════════════════════════════   │
+│                                                                  │
+│  [💾 Save CSV] [🗑 Clear] [📋 Details]                           │
+│                                                                  │
+│  [Event Log]                                                    │
+│  [14:30:01] Starting discovery on interface: Ethernet           │
+│  [14:30:15] New device: 192.168.1.1 (Hikvision) - Camera       │
+└─────────────────────────────────────────────────────────────────┘
+```
 
 ## 🖥️ Screenshot
 
@@ -100,7 +128,7 @@ scapy>=2.4.5    # For network packet handling (ARP, Sniffer)
 ## 📧 Contact
 
 - **Developer:** syfd74582
-- **Email:** [your-email@example.com]
+- **Email:** [alqyadydnan@gmail.com]
 - **GitHub:** [github.com/syfd74582](https://github.com/syfd74582)
 
 ## 📜 License
@@ -113,3 +141,5 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
   <sub>Built with ❤️ by Adnan Alqyady</sub>
 </div>
 ```
+
+
